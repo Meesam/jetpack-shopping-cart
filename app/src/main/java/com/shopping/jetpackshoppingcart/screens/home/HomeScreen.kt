@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,10 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.shopping.jetpackshoppingcart.common.components.AppHeader
+import com.shopping.jetpackshoppingcart.common.components.HomeCarousel
 import com.shopping.jetpackshoppingcart.common.components.SpacerHeight
 import com.shopping.jetpackshoppingcart.common.components.gradiantBakGround
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(){
     Box(modifier = Modifier
@@ -26,8 +30,16 @@ fun HomeScreen(){
         Column(modifier = Modifier
             .fillMaxSize()) {
             AppHeader()
-            SpacerHeight(200.dp)
-            Text(text = "Your Style", color = Color.White)
+            SpacerHeight(20.dp)
+            HomeCarousel()
+            SpacerHeight(20.dp)
+            Text(
+                text = "Recent Collection",
+                color = Color(0XFFC5C6D0),
+                fontSize = 24.sp
+            )
+            SpacerHeight(20.dp)
+            HomeCarousel()
         }
     }
 }
