@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1020513224351",
+    "project_id": "jetpackshoppingcart",
+    "storage_bucket": "jetpackshoppingcart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020513224351:android:5b1997c78bb018daf5c4aa",
+        "android_client_info": {
+          "package_name": "com.shopping.jetpackshoppingcart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4rwwQV9fNEE5fXvKdqFwasPitAlDnNnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
