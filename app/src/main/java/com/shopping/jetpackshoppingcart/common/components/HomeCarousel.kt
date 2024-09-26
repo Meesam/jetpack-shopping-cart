@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,9 +31,25 @@ import com.shopping.jetpackshoppingcart.common.utils.CarouselItem
 
 @Composable
 fun HomeCarousel(){
-   val listOfItems = listOf(
-       R.drawable.ic_image_1,
-       R.drawable.ic_launcher_background
+   val color1 = listOf(
+       Color(0XFF63C5DA),
+       Color(0XFF0492C2),
+   )
+    val color2 = listOf(
+        Color(0XFFAF69EF),
+        Color(0XFF710193),
+    )
+    val listOfItems = listOf(
+       CarouselItem(
+           title = "20% flat discount",
+           R.drawable.ic_image_1,
+           color1
+       ),
+       CarouselItem(
+           title = "20% flat discount",
+           R.drawable.ic_launcher_background,
+           color2
+       ),
    )
 
   val pagerState = rememberPagerState{
@@ -43,7 +57,7 @@ fun HomeCarousel(){
   }
     Surface(
         shadowElevation = 20.dp,
-        color = Color(0XFF028231D),
+        color = Color(0XFF28231D),
         shape = RoundedCornerShape(20.dp),
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -56,35 +70,38 @@ fun HomeCarousel(){
         {
             HorizontalPager(
                 state = pagerState,
-                key ={ listOfItems[it]},
                 pageSpacing = 10.dp
-            ) {index ->
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier
-                        .background(brush = gradiantBakGround(false))
-                        .padding(20.dp)
-                ) {
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier.weight(0.5f)
-                    ) {
-                        Text("2$index% flat discount", color = Color(0XFFC5C6D0), fontSize = 28.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
-                    Image(
-                        painter = painterResource(id = listOfItems[index] ),
-                        contentDescription = null,
-                        modifier = Modifier.weight(0.5f).fillMaxSize(),
-                        contentScale = ContentScale.Crop
-                    )
-                }
+            ) {page ->
+                PageItem(listOfItems[page])
             }
         }
     }
+}
 
+@Composable
+fun PageItem(item : CarouselItem){
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .background(brush = gradiantBakGround(false, listOfColors = item.colorList))
+            .padding(20.dp)
+    ) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.weight(0.5f)
+        ) {
+            Text(item.title, color = Color(0XFFC5C6D0), fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
+        Image(
+            painter = painterResource(id = item.image),
+            contentDescription = null,
+            modifier = Modifier.weight(0.5f).fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
+    }
 }
 
 
