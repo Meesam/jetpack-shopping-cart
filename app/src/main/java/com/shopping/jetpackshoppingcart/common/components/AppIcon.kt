@@ -14,12 +14,12 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun AppIcon(icon: ImageVector, description:String, modifier: Modifier? = Modifier){
+fun AppIcon(icon: ImageVector, description:String, bgColor: Long = 0XFF000000, modifier: Modifier? = Modifier){
     Surface(
         shape = CircleShape,
-        color = Color(0XFF000000),
+        color = Color(bgColor),
         shadowElevation = 5.dp,
-        contentColor = Color(0XFFC5C6D0)
+        contentColor = Color(0XFF28231D)
     ) {
         modifier?.padding(5.dp)?.let {
             Box(

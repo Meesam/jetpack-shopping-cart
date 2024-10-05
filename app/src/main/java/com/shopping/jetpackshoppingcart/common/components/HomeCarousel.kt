@@ -32,12 +32,12 @@ import com.shopping.jetpackshoppingcart.common.utils.CarouselItem
 @Composable
 fun HomeCarousel(){
    val color1 = listOf(
-       Color(0XFF63C5DA),
-       Color(0XFF0492C2),
+       Color(0XFF93a5cf),
+       Color(0XFFe4efe9),
    )
     val color2 = listOf(
-        Color(0XFFAF69EF),
-        Color(0XFF710193),
+        Color(0XFFaccbee),
+        Color(0XFFe7f0fd),
     )
     val listOfItems = listOf(
        CarouselItem(
@@ -46,11 +46,21 @@ fun HomeCarousel(){
            color1
        ),
        CarouselItem(
-           title = "20% flat discount",
-           R.drawable.ic_launcher_background,
+           title = "12% flat discount",
+           R.drawable.ic_image_2,
            color2
        ),
-   )
+        CarouselItem(
+            title = "10% flat discount",
+            R.drawable.ic_image_3,
+            color1
+        ),
+        CarouselItem(
+            title = "5% flat discount",
+            R.drawable.ic_image_4,
+            color2
+        ),
+    )
 
   val pagerState = rememberPagerState{
       listOfItems.size
@@ -70,7 +80,6 @@ fun HomeCarousel(){
         {
             HorizontalPager(
                 state = pagerState,
-                pageSpacing = 10.dp
             ) {page ->
                 PageItem(listOfItems[page])
             }
@@ -91,7 +100,7 @@ fun PageItem(item : CarouselItem){
             contentAlignment = Alignment.Center,
             modifier = Modifier.weight(0.5f)
         ) {
-            Text(item.title, color = Color(0XFFC5C6D0), fontSize = 28.sp,
+            Text(item.title, color = Color(0XFF868f96), fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )
         }

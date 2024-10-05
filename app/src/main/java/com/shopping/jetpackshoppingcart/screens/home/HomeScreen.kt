@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.sp
 import com.shopping.jetpackshoppingcart.common.components.AppHeader
 import com.shopping.jetpackshoppingcart.common.components.CategoryList
 import com.shopping.jetpackshoppingcart.common.components.HomeCarousel
+import com.shopping.jetpackshoppingcart.common.components.ProductList
 import com.shopping.jetpackshoppingcart.common.components.SpacerHeight
 import com.shopping.jetpackshoppingcart.common.components.gradiantBakGround
 
@@ -23,7 +24,14 @@ import com.shopping.jetpackshoppingcart.common.components.gradiantBakGround
 fun HomeScreen(){
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(brush = gradiantBakGround())
+        .background(
+            brush = gradiantBakGround(
+                listOfColors = listOf(
+                    Color(0XFFFDFBFB),
+                    Color(0XFFEBEDEE)
+                )
+            )
+        )
         .padding(top = 10.dp, start = 10.dp, end = 10.dp)
     ){
         Column(modifier = Modifier
@@ -33,6 +41,8 @@ fun HomeScreen(){
             HomeCarousel()
             SpacerHeight(20.dp)
             CategoryList()
+            SpacerHeight(20.dp)
+            ProductList()
         }
     }
 }

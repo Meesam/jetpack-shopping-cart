@@ -1,6 +1,7 @@
 package com.shopping.jetpackshoppingcart.common.components
 
 
+import android.util.Log
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.SportsBasketball
@@ -15,12 +16,12 @@ import androidx.compose.ui.unit.dp
 import com.shopping.jetpackshoppingcart.common.utils.CategoryItem
 
 @Composable
-fun CategoryItem(item:CategoryItem){
+fun CategoryItem(item:CategoryItem, onSelect:(title:String)->Unit){
 
     FilterChip(
         selected = item.isSelected,
         onClick = {
-
+            onSelect(item.title)
         },
         label = {
           Text(text = item.title)
@@ -30,9 +31,9 @@ fun CategoryItem(item:CategoryItem){
             Icon(imageVector = item.icon, contentDescription = null)
         },
         colors = FilterChipDefaults.filterChipColors(
-            containerColor = Color(0XFFC5C6D0),
-            labelColor = Color(0XFF28231D),
-            iconColor = Color(0XFF28231D),
+            containerColor = Color(0XFFFFFFFF),
+            labelColor = Color(0XFF868f96),
+            iconColor = Color(0XFF868f96),
             selectedContainerColor = Color(0XFF28231D),
             selectedLabelColor = Color(0XFFC5C6D0),
             selectedLeadingIconColor = Color(0XFFC5C6D0)
@@ -50,5 +51,5 @@ private fun CategoryItemPreview() {
         description = "",
         isSelected = false
     )
-    CategoryItem(item)
+    //CategoryItem(item)
 }

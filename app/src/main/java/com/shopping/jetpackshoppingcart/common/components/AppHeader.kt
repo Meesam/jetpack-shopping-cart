@@ -27,15 +27,15 @@ fun AppHeader(){
     ) {
         Row(verticalAlignment = Alignment.CenterVertically,
         ) {
-            AppIcon(Icons.Default.Person, "user")
+            AppIcon(Icons.Default.Person, "user", bgColor = 0XFFFFFFFF )
             SpacerWidth(10.dp)
-            Text(text = "Your Style", style = Typography.titleLarge, color = Color(0XFFC5C6D0))
+            Text(text = "Your Style", style = Typography.titleLarge, color = Color(0XFF28231D))
         }
 
         Row {
-            AppIcon(Icons.Default.ShoppingCart, "cart")
+            AppIcon(Icons.Default.ShoppingCart, "cart",bgColor = 0XFFFFFFFF)
             SpacerWidth(10.dp)
-            AppIcon(Icons.Default.LocalPostOffice, "message")
+            AppIcon(Icons.Default.LocalPostOffice, "message",bgColor = 0XFFFFFFFF)
         }
     }
 }

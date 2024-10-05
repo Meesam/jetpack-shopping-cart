@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.shopping.jetpackshoppingcart.common.components.AppHeader
@@ -37,7 +38,12 @@ fun AppScaffold(){
     Scaffold() { innerPadding ->
         Box(modifier = Modifier
             .fillMaxSize()
-            .background(brush = gradiantBakGround())
+            .background(brush = gradiantBakGround(
+                listOfColors = listOf(
+                    Color(0XFFFDFBFB),
+                    Color(0XFFEBEDEE)
+                )
+            ))
             .padding(innerPadding)
         ){
             HomeScreen()
