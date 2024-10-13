@@ -34,11 +34,10 @@ fun ProductItem(modifier: Modifier = Modifier) {
     Box(modifier.fillMaxWidth()) {
         ElevatedCard(
             colors = CardDefaults.cardColors(
-                containerColor = Color.LightGray
+                containerColor = Color.White
             ),
-            shape = RoundedCornerShape(10.dp),
-            modifier = Modifier
-                .fillMaxWidth()
+            shape = RoundedCornerShape(5.dp),
+
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -48,7 +47,7 @@ fun ProductItem(modifier: Modifier = Modifier) {
                     painter = painterResource(id = R.drawable.ic_image_4),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.size(200.dp,200.dp)
+                    modifier = Modifier.size(150.dp,120.dp)
                 )
                 SpacerHeight(5.dp)
                 Box(modifier = Modifier

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bed
 import androidx.compose.material.icons.filled.Book
@@ -76,12 +77,11 @@ fun CategoryList(){
             ))
     }
 
-    Log.d("categoryItems", "$categoryItems")
     Box(
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        LazyRow(contentPadding = PaddingValues(horizontal = 5.dp)){
+        LazyRow(contentPadding = PaddingValues(horizontal = 5.dp), state = rememberLazyListState()){
             items(categoryItems){item->
                 CategoryItem(item = item, onSelect = {value->
                     categoryItems.forEach { category ->

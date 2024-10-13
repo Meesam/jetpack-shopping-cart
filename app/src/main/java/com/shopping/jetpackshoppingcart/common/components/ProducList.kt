@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.itemsIndexed
@@ -20,15 +21,10 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ProductList(modifier: Modifier = Modifier) {
     val itemsList = (0..50).toList()
-    val itemsIndexedList = listOf("A", "B", "C")
 
-    val itemModifier = Modifier
-        .border(1.dp, Color.Blue)
-        .height(80.dp)
-        .wrapContentSize()
-
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
+    LazyHorizontalGrid(
+        rows = GridCells.Fixed(1),
+        modifier.height(130.dp)
     ) {
         items(itemsList) {
            Box(modifier.padding(5.dp)) {

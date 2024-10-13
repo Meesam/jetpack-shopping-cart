@@ -1,10 +1,15 @@
 package com.shopping.jetpackshoppingcart.screens.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,15 +39,37 @@ fun HomeScreen(){
         )
         .padding(top = 10.dp, start = 10.dp, end = 10.dp)
     ){
-        Column(modifier = Modifier
-            .fillMaxSize()) {
-            AppHeader()
-            SpacerHeight(20.dp)
-            HomeCarousel()
-            SpacerHeight(20.dp)
-            CategoryList()
-            SpacerHeight(20.dp)
-            ProductList()
+
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            item { HomeCarousel() }
+            item { SpacerHeight(10.dp)}
+            item {CategoryList()}
+            item { SpacerHeight(10.dp)}
+            item {ProductList()}
+            item { SpacerHeight(10.dp)}
+            item {ProductList()}
+            item { SpacerHeight(10.dp)}
+            item {ProductList()}
+            item { SpacerHeight(10.dp)}
+            item {ProductList()}
+            item { SpacerHeight(10.dp)}
+            item {CategoryList()}
+            item { SpacerHeight(10.dp)}
+            item { HomeCarousel() }
+            item { SpacerHeight(10.dp)}
+            item {CategoryList()}
+            item { SpacerHeight(10.dp)}
+            item {ProductList()}
+            item { SpacerHeight(10.dp)}
+            item {ProductList()}
+            item { SpacerHeight(10.dp)}
+            item {ProductList()}
+            item { SpacerHeight(10.dp)}
+            item {ProductList()}
+            item { SpacerHeight(10.dp)}
+            item {CategoryList()}
+            item { SpacerHeight(10.dp)}
+            item { HomeCarousel() }
         }
     }
 }
