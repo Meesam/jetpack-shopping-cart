@@ -40,7 +40,7 @@ fun HomeScreen(){
         .padding(top = 10.dp, start = 10.dp, end = 10.dp)
     ){
 
-        LazyColumn(modifier = Modifier.fillMaxSize()) {
+        LazyColumn() {
             item { HomeCarousel() }
             item { SpacerHeight(10.dp)}
             item {CategoryList()}
@@ -53,12 +53,6 @@ fun HomeScreen(){
             item { SpacerHeight(10.dp)}
             item {ProductList()}
             item { SpacerHeight(10.dp)}
-            item {CategoryList()}
-            item { SpacerHeight(10.dp)}
-            item { HomeCarousel() }
-            item { SpacerHeight(10.dp)}
-            item {CategoryList()}
-            item { SpacerHeight(10.dp)}
             item {ProductList()}
             item { SpacerHeight(10.dp)}
             item {ProductList()}
@@ -67,9 +61,6 @@ fun HomeScreen(){
             item { SpacerHeight(10.dp)}
             item {ProductList()}
             item { SpacerHeight(10.dp)}
-            item {CategoryList()}
-            item { SpacerHeight(10.dp)}
-            item { HomeCarousel() }
         }
     }
 }

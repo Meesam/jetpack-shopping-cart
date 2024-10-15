@@ -5,9 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
@@ -16,6 +19,7 @@ import androidx.compose.material.icons.filled.Person2
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
@@ -33,6 +37,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -71,12 +76,9 @@ fun AppScaffold(){
     Scaffold(
         bottomBar = {
             NavigationBar(
-                containerColor = MaterialTheme.colorScheme.primary,
-                contentColor =  Color.White,
-                tonalElevation = 5.dp,
-                modifier = Modifier
-                    .padding(top = 10.dp)
-
+                containerColor = Color.LightGray,
+                contentColor =  Color.DarkGray,
+                tonalElevation = 10.dp,
             ) {
                 navItems.forEachIndexed { index, navItem ->
                     NavigationBarItem(
@@ -92,10 +94,11 @@ fun AppScaffold(){
                         },
                         colors = NavigationBarItemDefaults.colors(
                             selectedIconColor = Color.White,
-                            selectedTextColor = Color.White,
+                            selectedTextColor = Color.DarkGray,
                             unselectedIconColor = Color.DarkGray,
                             unselectedTextColor = Color.DarkGray
-                        )
+                        ),
+                        alwaysShowLabel = false,
                     )
                 }
             }
@@ -103,17 +106,18 @@ fun AppScaffold(){
         topBar ={
             TopAppBar(
                 title = {
-                    Text(text = "Shopping")
+                    Text(text = "Shopping", color = Color.DarkGray)
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary
+                    containerColor = Color.LightGray,
+                    titleContentColor = Color.DarkGray
                 ),
                 navigationIcon = {
                     IconButton(
                         onClick = { /*TODO*/ },
                         colors = IconButtonDefaults.iconButtonColors(
                             containerColor = Color.Transparent,
-                            contentColor = Color.White
+                            contentColor = Color.DarkGray
                         )
                     ) {
                         Icon(imageVector = Icons.Filled.Menu , contentDescription = "")
@@ -124,7 +128,7 @@ fun AppScaffold(){
                         onClick = { /*TODO*/ },
                         colors = IconButtonDefaults.iconButtonColors(
                             containerColor = Color.Transparent,
-                            contentColor = Color.White
+                            contentColor = Color.DarkGray
                         )
                     ) {
                         Icon(imageVector = Icons.Filled.ShoppingCart , contentDescription = "")
@@ -133,36 +137,27 @@ fun AppScaffold(){
                         onClick = { /*TODO*/ },
                         colors = IconButtonDefaults.iconButtonColors(
                             containerColor = Color.Transparent,
-                            contentColor = Color.White
+                            contentColor = Color.DarkGray
                         )
                     ) {
                         Icon(imageVector = Icons.Filled.Settings , contentDescription = "")
                     }
-                    IconButton(
+                    FilledIconButton(
                         onClick = { /*TODO*/ },
                         colors = IconButtonDefaults.iconButtonColors(
                             containerColor = Color.Transparent,
-                            contentColor = Color.White
+                            contentColor = Color.DarkGray
                         )
                     ) {
                         Icon(imageVector = Icons.Filled.Person2 , contentDescription = "")
                     }
                 }
             )
-        }
+        },
 
     ) { innerPadding ->
-        Box(modifier = Modifier
-            .fillMaxSize()
-            .background(
-                brush = gradiantBakGround(
-                    listOfColors = listOf(
-                        Color(0XFFFDFBFB),
-                        Color(0XFFEBEDEE)
-                    )
-                )
-            )
-            .padding(innerPadding)
+        Column(modifier = Modifier
+           .padding(innerPadding)
         ){
             ContentScreen(selectedItem)
         }

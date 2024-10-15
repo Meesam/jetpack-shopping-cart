@@ -31,13 +31,11 @@ import com.shopping.jetpackshoppingcart.R
 
 @Composable
 fun ProductItem(modifier: Modifier = Modifier) {
-    Box(modifier.fillMaxWidth()) {
         ElevatedCard(
             colors = CardDefaults.cardColors(
                 containerColor = Color.White
             ),
             shape = RoundedCornerShape(5.dp),
-
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -47,17 +45,11 @@ fun ProductItem(modifier: Modifier = Modifier) {
                     painter = painterResource(id = R.drawable.ic_image_4),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.size(150.dp,120.dp)
+                    modifier = Modifier.size(200.dp,150.dp)
                 )
-                SpacerHeight(5.dp)
-                Box(modifier = Modifier
-                    .padding(5.dp)
-                ){
-                    Text(text = "Test Product", fontSize = 16.sp, fontWeight = FontWeight.W400)
-                }
+                Text(text = "Test Product", fontSize = 16.sp, fontWeight = FontWeight.W400)
             }
         }
-    }
 }
 
 @Preview
